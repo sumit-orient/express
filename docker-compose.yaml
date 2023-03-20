@@ -1,0 +1,12 @@
+version: "3.1"
+services:
+  hello-world:
+    image: hello-world:latest
+    container_name: hello-world
+    restart: always
+    ports:
+      - "3000:3000"
+    deploy:
+      resources:
+        limits:
+         memory: 512M
