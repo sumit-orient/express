@@ -27,10 +27,11 @@ resource "aws_instance" "ubuntu" {
 resource "aws_instance" "jenkins" {
 #   name                        = "expressjs-app"
   ami                         = var.ami_id                                          # "ami-09cd747c78a9add63"
-  instance_type               = var.instance_type                                   # "t2.micro"             # "winkey"
+  instance_type               = var.instance_type                                   # "t2.micro"            
+  associate_public_ip_address = true
   key_name                    = var.key_name                                         # "test-kp" 
   vpc_security_group_ids      = [aws_security_group.allow_word.id]            
-  subnet_id                   = aws_subnet.pearl-pub-1a.id                          # var.subnets_id
+  subnet_id                   = aws_subnet.pearl-pub-1b.id                          # var.subnets_id
   iam_instance_profile        = aws_iam_instance_profile.profile.name
   # root disk
   root_block_device {
